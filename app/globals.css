@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050608;
+  --surface: #0B0E14;
+  --surface-elevated: #111520;
+  --surface-border: #1C2333;
+  --electric-blue: #075BFF;
+  --bright-blue: #168CFF;
+  --metallic-silver: #DCE3EF;
+  --metallic-muted: #8A97AC;
+}
+
+@layer base {
+  * {
+    border-color: #1C2333;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #050608;
+    color: #DCE3EF;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: #050608;
+    color: #DCE3EF;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', 'Orbitron', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: #075BFF;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C2333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2D3850;
+}
+
+/* Editorial Chrome & Metallic Typography */
+.text-metallic-headline {
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCE3EF 60%, #95A4BD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Architectural Hairline Borders */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(220, 227, 239, 0.15) 50%, transparent 100%);
+}
+
+.editorial-frame {
+  border: 1px solid rgba(220, 227, 239, 0.08);
+  background: #0B0E14;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-frame:hover {
+  border-color: rgba(7, 91, 255, 0.4);
+}
+
+/* Clean Button Styles */
+.btn-primary-blue {
+  background: #075BFF;
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(7, 91, 255, 0.35);
+}
+
+.btn-primary-blue:hover {
+  background: #168CFF;
+  box-shadow: 0 6px 28px rgba(7, 91, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-outline {
+  border: 1px solid rgba(220, 227, 239, 0.18);
+  background: rgba(17, 21, 32, 0.6);
+  color: #DCE3EF;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-outline:hover {
+  border-color: #DCE3EF;
+  background: #111520;
+  color: #FFFFFF;
+}
+
+/* Technical Datum Badge */
+.technical-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8A97AC;
+  background: #0B0E14;
+  border: 1px solid rgba(220, 227, 239, 0.1);
+  border-radius: 4px;
+}
+
+
+/* ---------- Motion: game wall & marquees ---------- */
+@keyframes scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes scroll-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-scroll-up { animation: scroll-up 60s linear infinite; }
+.animate-scroll-down { animation: scroll-down 60s linear infinite; }
+.animate-marquee-x { animation: marquee-x 50s linear infinite; }
+.animate-marquee-x:hover { animation-play-state: paused; }
+.animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-up,
+  .animate-scroll-down,
+  .animate-marquee-x,
+  .animate-fade-up {
+    animation: none !important;
+  }
+}
+
+/* Thin electric underline used on editorial links */
+.link-underline {
+  background-image: linear-gradient(#075BFF, #075BFF);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover { background-size: 100% 1px; }
