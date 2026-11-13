@@ -49,8 +49,7 @@ export default function NomineesPage() {
           <div className="lg:col-span-4 flex gap-3 p-4 rounded-lg border border-electric/30 bg-electric/5 text-xs text-metallic leading-relaxed">
             <Info className="w-4 h-4 text-electric shrink-0 mt-0.5" />
             <p>
-              Official nominees have not been announced yet. The experiences below are a showcase of popular Roblox games
-              and will be replaced by the official list.
+              The following are the games that will be featured at the upcoming event.
             </p>
           </div>
         </div>
